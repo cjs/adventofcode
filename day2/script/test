@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-set -e
-ruby -Ilib:test test/keypad_test.rb
