@@ -12,6 +12,7 @@ def find_hash(seed, start=0)
 end
 
 door_id = 'reyedfim'
+
 start_index = 0
 password = ''
 0.upto(7) do |i|
@@ -20,5 +21,18 @@ password = ''
   start_index = found_index.next
 end
 
-p password
+p "Door 1: #{password}"
+
+start_index = 0
+pass_array = Array.new(8)
+while pass_array.include?(nil)
+  digest, found_index = find_hash(door_id, start_index)
+  position = digest[5].to_s
+  pass_array[position.to_i] = digest[6].to_s if position.match('\d') and position.to_i < 8 and pass_array[position.to_i].nil?
+  start_index = found_index.next
+  p pass_array
+end
+
+p "Door 2: #{pass_array.join("")}"
+
 
