@@ -18,3 +18,10 @@ freqs.each do |freq|
 end
 
 p "Part 1: #{ecmsg}"
+
+ecmsg2 = ''
+freqs.each do |freq|
+    ecmsg2.concat(freq.to_a.sort_by {|char, count| count}[0][0])
+end
+
+p "Part 2: #{ecmsg2}"
