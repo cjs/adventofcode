@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -e
+ruby -Ilib:test test/decompress_test.rb
