@@ -12,12 +12,11 @@ instructions.each do |i|
     d.rect(Integer(a), Integer(b))
   end
   if tokens[0] == 'rotate'
+    a = tokens[2].split('=')[1]
     if tokens[1] == 'row'
-      a = tokens[2].tr('y=', '')
       d.rotate_row(Integer(a), Integer(tokens[4]))
     end
     if tokens[1] == 'column'
-      a = tokens[2].tr('x=', '')
       d.rotate_column(Integer(a), Integer(tokens[4]))
     end
   end
