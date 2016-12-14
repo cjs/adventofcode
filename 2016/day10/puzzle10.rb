@@ -32,8 +32,7 @@ values.each do |value, target|
   (bot[target] ||= Bot.new(target)).assign(value)
 end
 
-p "Part 1"
-bot.each { |k,v| p v.id if v.compares == [17, 61] }
+b = bot.select{ |k,v| v.compares == [17, 61] }
+p "Part 1: #{b.keys.first}"
 
-p "Part 2"
-p output[0].slot * output[1].slot * output[2].slot
+p "Part 2: #{output[0].slot * output[1].slot * output[2].slot}"
