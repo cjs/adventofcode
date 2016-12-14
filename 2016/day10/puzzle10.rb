@@ -29,7 +29,6 @@ instructions.each do |i|
 end
 
 values.each do |value, target|
-  p "Value #{value} goes to Bot #{target}"
   (bot[target] ||= Bot.new(target)).assign(value)
 end
 
