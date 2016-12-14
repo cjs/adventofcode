@@ -6,6 +6,7 @@ require './lib/room'
 rooms = File.open('input').reduce(0) do |sum, room_id|
   r = Room.new(room_id)
   r.valid? ? sum += r.sector : sum
+  sum
 end
 
 p 'Part 1'

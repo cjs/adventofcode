@@ -2,13 +2,11 @@
 
 require './lib/ip7'
 
-tls_count = File.open('input').reduce(0) do |count, ip| 
-  IPaddress.new(ip.chomp).support_tls? ? count += 1 : count
+ip_count = File.open('input').reduce([0,0]) do |count, ip| 
+  count[0] += 1 if IPaddress.new(ip.chomp).support_tls?
+  count[1] += 1 if IPaddress.new(ip.chomp).support_ssl?
+  count
 end
 
-p "Part 1: #{tls_count}"
-
-tls_count = File.open('input').reduce(0) do |count, ip| 
-    IPaddress.new(ip.chomp).support_ssl? ? count += 1 : count
-end
-p "Part 2: #{tls_count}"
+p "Part 1: #{ip_count[0]}"
+p "Part 2: #{ip_count[1]}"
