@@ -14,14 +14,14 @@ end
 
 ecmsg = ''
 freqs.each do |freq|
-  ecmsg.concat(freq.to_a.sort_by {|char, count| -count}[0][0])
+  ecmsg.concat(freq.to_a.sort_by {|_, count| -count}[0][0])
 end
 
 p "Part 1: #{ecmsg}"
 
 ecmsg2 = ''
 freqs.each do |freq|
-    ecmsg2.concat(freq.to_a.sort_by {|char, count| count}[0][0])
+    ecmsg2.concat(freq.to_a.sort_by {|_, count| count}[0][0])
 end
 
 p "Part 2: #{ecmsg2}"
