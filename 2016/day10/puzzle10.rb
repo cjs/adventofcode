@@ -15,7 +15,7 @@ instructions.each do |i|
     instruct = []
     (1...parse.length).step(2).each do |index|
       target = Integer(parse[index+1])
-      if parse[index] == 'object'
+      if parse[index] == 'output'
         instruct << output[target] ||= Output.new
       else
         instruct << (bot[target] ||= Bot.new(target))
@@ -35,3 +35,5 @@ end
 p "Part 1"
 bot.each { |k,v| p v.id if v.compares == [17, 61] }
 
+p "Part 2"
+p output[0].slot * output[1].slot * output[2].slot
